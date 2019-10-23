@@ -1,0 +1,7 @@
+<view class="poster">
+  <image src="/assets/images/poster.jpg"></image>
+  <canvas canvas-id="myQrcode"></canvas>
+</view>
+<view class="btns-group">
+  <view bindtap="makeCall" class="btn-primary">保存图片</view>
+</view>

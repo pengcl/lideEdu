@@ -1,0 +1,240 @@
+<view class="weui-tab">
+  <view class="weui-navbar">
+    <block wx:for="{{tabs}}" wx:key="*this">
+      <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+        <view class="weui-navbar__title">{{item}}</view>
+      </view>
+    </block>
+    <view class="weui-navbar__item weui-navbar__item_share">
+      <view class="weui-navbar__title">
+        <button class="share" open-type="share"><image src="/assets/icons/share.png"></image></button>
+      </view>
+    </view>
+  </view>
+  <view class="weui-tab__panel">
+    <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+      <view class="list">
+        <view class="weui-panel">
+          <view class="weui-panel__bd">
+            <view class="weui-media-box weui-media-box_appmsg">
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">中教文化2019监理《质量控制》考前强化训练</view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">三控</view>
+                  <view class="weui-media-box__info__meta">4308人</view>
+                  <view class="weui-media-box__info__meta">2019-05-16</view>
+                </view>
+              </view>
+              <view class="weui-media-box__ft weui-media-box__ft_in-appmsg">
+                <text class="button">免费查看</text>
+              </view>
+            </view>
+            <view class="weui-media-box weui-media-box_appmsg">
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">中教文化2019监理《质量控制》考前强化训练</view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">三控</view>
+                  <view class="weui-media-box__info__meta">4308人</view>
+                  <view class="weui-media-box__info__meta">2019-05-16</view>
+                </view>
+              </view>
+              <view class="weui-media-box__ft weui-media-box__ft_in-appmsg">
+                <text class="button">免费查看</text>
+              </view>
+            </view>
+            <view class="weui-media-box weui-media-box_appmsg">
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">中教文化2019监理《质量控制》考前强化训练</view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">三控</view>
+                  <view class="weui-media-box__info__meta">4308人</view>
+                  <view class="weui-media-box__info__meta">2019-05-16</view>
+                </view>
+              </view>
+              <view class="weui-media-box__ft weui-media-box__ft_in-appmsg">
+                <text class="button">免费查看</text>
+              </view>
+            </view>
+            <view class="weui-media-box weui-media-box_appmsg">
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">中教文化2019监理《质量控制》考前强化训练</view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">三控</view>
+                  <view class="weui-media-box__info__meta">4308人</view>
+                  <view class="weui-media-box__info__meta">2019-05-16</view>
+                </view>
+              </view>
+              <view class="weui-media-box__ft weui-media-box__ft_in-appmsg">
+                <text class="button">免费查看</text>
+              </view>
+            </view>
+            <view class="weui-media-box weui-media-box_appmsg">
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">中教文化2019监理《质量控制》考前强化训练</view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">三控</view>
+                  <view class="weui-media-box__info__meta">4308人</view>
+                  <view class="weui-media-box__info__meta">2019-05-16</view>
+                </view>
+              </view>
+              <view class="weui-media-box__ft weui-media-box__ft_in-appmsg">
+                <text class="button">免费查看</text>
+              </view>
+            </view>
+            <view class="weui-media-box weui-media-box_appmsg">
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">中教文化2019监理《质量控制》考前强化训练</view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">三控</view>
+                  <view class="weui-media-box__info__meta">4308人</view>
+                  <view class="weui-media-box__info__meta">2019-05-16</view>
+                </view>
+              </view>
+              <view class="weui-media-box__ft weui-media-box__ft_in-appmsg">
+                <text class="button">免费查看</text>
+              </view>
+            </view>
+            <view class="weui-media-box weui-media-box_appmsg">
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">中教文化2019监理《质量控制》考前强化训练</view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">三控</view>
+                  <view class="weui-media-box__info__meta">4308人</view>
+                  <view class="weui-media-box__info__meta">2019-05-16</view>
+                </view>
+              </view>
+              <view class="weui-media-box__ft weui-media-box__ft_in-appmsg">
+                <text class="button">免费查看</text>
+              </view>
+            </view>
+            <view class="weui-media-box weui-media-box_appmsg">
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">中教文化2019监理《质量控制》考前强化训练</view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">三控</view>
+                  <view class="weui-media-box__info__meta">4308人</view>
+                  <view class="weui-media-box__info__meta">2019-05-16</view>
+                </view>
+              </view>
+              <view class="weui-media-box__ft weui-media-box__ft_in-appmsg">
+                <text class="button">免费查看</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+      <view class="list">
+        <view class="weui-panel">
+          <view class="weui-panel__bd">
+            <view class="weui-media-box weui-media-box_appmsg">
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">中教文化2019监理《质量控制》考前强化训练</view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">三控</view>
+                  <view class="weui-media-box__info__meta">4308人</view>
+                  <view class="weui-media-box__info__meta">2019-05-16</view>
+                </view>
+              </view>
+              <view class="weui-media-box__ft weui-media-box__ft_in-appmsg">
+                <text class="button">免费查看</text>
+              </view>
+            </view>
+            <view class="weui-media-box weui-media-box_appmsg">
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">中教文化2019监理《质量控制》考前强化训练</view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">三控</view>
+                  <view class="weui-media-box__info__meta">4308人</view>
+                  <view class="weui-media-box__info__meta">2019-05-16</view>
+                </view>
+              </view>
+              <view class="weui-media-box__ft weui-media-box__ft_in-appmsg">
+                <text class="button">免费查看</text>
+              </view>
+            </view>
+            <view class="weui-media-box weui-media-box_appmsg">
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">中教文化2019监理《质量控制》考前强化训练</view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">三控</view>
+                  <view class="weui-media-box__info__meta">4308人</view>
+                  <view class="weui-media-box__info__meta">2019-05-16</view>
+                </view>
+              </view>
+              <view class="weui-media-box__ft weui-media-box__ft_in-appmsg">
+                <text class="button">免费查看</text>
+              </view>
+            </view>
+            <view class="weui-media-box weui-media-box_appmsg">
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">中教文化2019监理《质量控制》考前强化训练</view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">三控</view>
+                  <view class="weui-media-box__info__meta">4308人</view>
+                  <view class="weui-media-box__info__meta">2019-05-16</view>
+                </view>
+              </view>
+              <view class="weui-media-box__ft weui-media-box__ft_in-appmsg">
+                <text class="button">免费查看</text>
+              </view>
+            </view>
+            <view class="weui-media-box weui-media-box_appmsg">
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">中教文化2019监理《质量控制》考前强化训练</view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">三控</view>
+                  <view class="weui-media-box__info__meta">4308人</view>
+                  <view class="weui-media-box__info__meta">2019-05-16</view>
+                </view>
+              </view>
+              <view class="weui-media-box__ft weui-media-box__ft_in-appmsg">
+                <text class="button">免费查看</text>
+              </view>
+            </view>
+            <view class="weui-media-box weui-media-box_appmsg">
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">中教文化2019监理《质量控制》考前强化训练</view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">三控</view>
+                  <view class="weui-media-box__info__meta">4308人</view>
+                  <view class="weui-media-box__info__meta">2019-05-16</view>
+                </view>
+              </view>
+              <view class="weui-media-box__ft weui-media-box__ft_in-appmsg">
+                <text class="button">免费查看</text>
+              </view>
+            </view>
+            <view class="weui-media-box weui-media-box_appmsg">
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">中教文化2019监理《质量控制》考前强化训练</view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">三控</view>
+                  <view class="weui-media-box__info__meta">4308人</view>
+                  <view class="weui-media-box__info__meta">2019-05-16</view>
+                </view>
+              </view>
+              <view class="weui-media-box__ft weui-media-box__ft_in-appmsg">
+                <text class="button">免费查看</text>
+              </view>
+            </view>
+            <view class="weui-media-box weui-media-box_appmsg">
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">中教文化2019监理《质量控制》考前强化训练</view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">三控</view>
+                  <view class="weui-media-box__info__meta">4308人</view>
+                  <view class="weui-media-box__info__meta">2019-05-16</view>
+                </view>
+              </view>
+              <view class="weui-media-box__ft weui-media-box__ft_in-appmsg">
+                <text class="button">免费查看</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

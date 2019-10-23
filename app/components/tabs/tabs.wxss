@@ -1,0 +1,15 @@
+.weui-tabbar__item .on {
+  display: none;
+}
+
+.weui-bar__item_on .weui-tabbar__icon {
+  display: none;
+}
+
+.weui-tabbar__item.weui-bar__item_on .on {
+  display: block;
+}
+
+.weui-tabbar__item.weui-bar__item_on .weui-tabbar__label {
+  color: #f26549;
+}

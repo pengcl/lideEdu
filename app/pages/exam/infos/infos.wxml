@@ -1,0 +1,72 @@
+<view class="profile">
+  <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_text">
+        <view class="weui-media-box__title weui-media-box__title_in-text">一级建造师</view>
+        <view class="weui-media-box__desc">2019.9.21-22</view>
+      </view>
+      <view class="weui-media-box weui-media-box_text">
+        <view class="weui-media-box__title weui-media-box__title_in-text">考试时间</view>
+        <view class="data-list">
+          <view class="data-item">
+            <view class="data-item-hd"><text class="date">9.21</text></view>
+            <view class="data-item-bd">
+              <view class="content-list">
+                <view class="content-item">
+                  <text class="label">工程经济</text>
+                  <text class="value">09:00-11:00</text>
+                </view>
+                <view class="content-item">
+                  <text class="label">工程经济</text>
+                  <text class="value">09:00-11:00</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="data-item">
+            <view class="data-item-hd"><text class="date">9.22</text></view>
+            <view class="data-item-bd">
+              <view class="content-list">
+                <view class="content-item">
+                  <text class="label">工程经济</text>
+                  <text class="value">09:00-11:00</text>
+                </view>
+                <view class="content-item">
+                  <text class="label">工程经济</text>
+                  <text class="value">09:00-11:00</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="data-item">
+            <view class="data-item-hd"><text class="date">9.23</text></view>
+            <view class="data-item-bd">
+              <view class="content-list">
+                <view class="content-item">
+                  <text class="label">工程经济</text>
+                  <text class="value">09:00-11:00</text>
+                </view>
+                <view class="content-item">
+                  <text class="label">工程经济</text>
+                  <text class="value">09:00-11:00</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="contact">
+  <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_text">
+        <view class="weui-media-box__title weui-media-box__title_in-text">地址</view>
+        <view class="weui-media-box__article">广东省广州市白云区龙禧中心F栋2410广东省广州市白云区龙禧中心F栋2410广东省广州市白云区龙禧中心F栋2410广东省广州市白云区龙禧中心F栋2410广东省广州市白云区龙禧中心F栋2410广东省广州市白云区龙禧中心F栋2410广东省广州市白云区龙禧中心F栋2410广东省广州市白云区龙禧中心F栋2410广东省广州市白云区龙禧中心F栋2410广东省广州市白云区龙禧中心F栋2410广东省广州市白云区龙禧中心F栋2410广东省广州市白云区龙禧中心F栋2410广东省广州市白云区龙禧中心F栋2410广东省广州市白云区龙禧中心F栋2410广东省广州市白云区龙禧中心F栋2410广东省广州市白云区龙禧中心F栋2410广东省广州市白云区龙禧中心F栋2410广东省广州市白云区龙禧中心F栋2410广东省广州市白云区龙禧中心F栋2410广东省广州市白云区龙禧中心F栋2410广东省广州市白云区龙禧中心F栋2410</view>
+      </view>
+    </view>
+  </view>
+</view>
+<service></service>

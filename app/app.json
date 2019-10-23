@@ -1,0 +1,50 @@
+{
+  "style": "v2",
+  "pages": [
+    "pages/index/index",
+    "pages/share/share",
+    "pages/exam/infos/infos",
+    "pages/service/service",
+    "pages/course/list/list",
+    "pages/data/list/list",
+    "pages/data/item/item",
+    "pages/search/index",
+    "pages/logs/logs"
+  ],
+  "tabBar": {
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/icons/home.png",
+        "selectedIconPath": "assets/icons/home_on.png"
+      },
+      {
+        "pagePath": "pages/data/list/list",
+        "text": "资料",
+        "iconPath": "assets/icons/data.png",
+        "selectedIconPath": "assets/icons/data_on.png"
+      },
+      {
+        "pagePath": "pages/course/list/list",
+        "text": "课程",
+        "iconPath": "assets/icons/study.png",
+        "selectedIconPath": "assets/icons/study_on.png"
+      },
+      {
+        "pagePath": "pages/exam/infos/infos",
+        "text": "考讯",
+        "iconPath": "assets/icons/exam.png",
+        "selectedIconPath": "assets/icons/exam_on.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f26549",
+    "navigationBarTitleText": "立德",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}

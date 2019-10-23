@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "资料",
+  "usingComponents": {
+    "tabs": "/components/tabs/tabs"
+  }
+}

@@ -1,0 +1,21 @@
+.list {
+  margin-top: 15px;
+}
+
+.weui-navbar__item_search {
+  flex: 1;
+  text-align: right;
+  align-self: center;
+}
+
+.weui-search-bar__form {
+  position: absolute;
+  right: 16px;
+  top: 0;
+  width: 130px;
+}
+
+.weui-search-bar__label {
+  background-color: #eee;
+  border-radius: 30px;
+}

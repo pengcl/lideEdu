@@ -1,0 +1,31 @@
+<!--tabs.wxml-->
+<view class="weui-tabbar">
+  <view class="weui-tabbar__item weui-bar__item_on">
+    <navigator url="/pages/index/index" style="position: relative;display:inline-block;">
+      <image src="/assets/icons/home.png" class="weui-tabbar__icon"></image>
+      <image src="/assets/icons/home_on.png" class="weui-tabbar__icon on"></image>
+    </navigator>
+    <view class="weui-tabbar__label">好考</view>
+  </view>
+  <view class="weui-tabbar__item">
+    <navigator url="/pages/data/list/list" style="position: relative;display:inline-block;">
+      <image src="/assets/icons/data.png" class="weui-tabbar__icon"></image>
+      <image src="/assets/icons/data_on.png" class="weui-tabbar__icon on"></image>
+    </navigator>
+    <view class="weui-tabbar__label">资料</view>
+  </view>
+  <view class="weui-tabbar__item">
+    <navigator url="" style="position: relative;display:inline-block;">
+      <image src="/assets/icons/study.png" class="weui-tabbar__icon"></image>
+      <image src="/assets/icons/study_on.png" class="weui-tabbar__icon on"></image>
+    </navigator>
+    <view class="weui-tabbar__label">课程</view>
+  </view>
+  <view class="weui-tabbar__item">
+    <navigator url="" style="position: relative;display:inline-block;">
+      <image src="/assets/icons/exam.png" class="weui-tabbar__icon"></image>
+      <image src="/assets/icons/exam_on.png" class="weui-tabbar__icon on"></image>
+    </navigator>
+    <view class="weui-tabbar__label">考讯</view>
+  </view>
+</view>

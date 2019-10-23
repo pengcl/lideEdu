@@ -1,0 +1,28 @@
+.list {
+  margin-top: 15px;
+}
+
+.weui-navbar__item_share {
+  flex: 1;
+  text-align: right;
+  align-self: center;
+}
+
+.weui-navbar__item_share button {
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin: 0 0 0 auto;
+  border: none;
+  background-color: transparent;
+}
+
+.weui-navbar__item_share button::after{
+  display: none;
+}
+
+.weui-navbar__item_share image {
+  display: block;
+  width: 16px;
+  height: 16px;
+}

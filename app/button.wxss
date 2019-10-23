@@ -1,0 +1,71 @@
+[class^="btn-"], [class*=" btn-"] {
+  font-size: 14px;
+  line-height: 22px !important;
+  padding: 14px 15px 12px;
+  font-family: "lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  text-indent: 0.03em;
+  text-transform: uppercase;
+  /*!*@include transition-property(all);
+  @include transition-duration(200ms);
+  @include transition-timing-function(ease-in);
+  @include transition-delay(0s);*!*/
+  color: #fff;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  text-decoration: none !important;
+  vertical-align: middle;
+  white-space: nowrap;
+  border: 0;
+}
+
+[class^="btn-"][class*="small"], [class*=" btn-"][class*="small"] {
+  padding: 0.07em 0.125em 0.050em;
+}
+
+[class^="btn-"][class*="primary"], [class*=" btn-"][class*="primary"] {
+  background-color: #f26549;
+  color: #fff;
+}
+
+[class^="btn-"][class*="primary"]:hover,
+[class*=" btn-"][class*="primary"]:hover {
+  background-color: darken(#f26549, 5%);
+}
+
+[class^="btn-"][class*="primary"]:active,
+[class*=" btn-"][class*="primary"]:active {
+  box-shadow: darken(#f26549, 5%) 0 1px 3px 0 inset;
+}
+
+[class^="btn-"][class*="secondary"], [class*=" btn-"][class*="secondary"] {
+  background: #555;
+  color: #fff;
+}
+
+[class^="btn-"][class*="secondary"]:hover,
+[class*=" btn-"][class*="secondary"]:hover {
+  background-color: darken(#555, 5%);
+}
+
+[class^="btn-"][class*="secondary"]:active,
+[class*=" btn-"][class*="secondary"]:active {
+  box-shadow: darken(#555, 5%) 0 1px 3px 0 inset;
+}
+
+.btns-group {
+  display: flex;
+  flex-wrap: wrap;
+  position: fixed;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.btns-group [class*="btn-"] {
+  flex: 1;
+}
