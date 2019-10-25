@@ -1,11 +1,11 @@
 {
   "style": "v2",
   "pages": [
+    "pages/course/list/list",
     "pages/index/index",
     "pages/share/share",
     "pages/exam/infos/infos",
     "pages/service/service",
-    "pages/course/list/list",
     "pages/data/list/list",
     "pages/data/item/item",
     "pages/search/index",
@@ -43,7 +43,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#f26549",
-    "navigationBarTitleText": "立德",
+    "navigationBarTitleText": "立得学堂",
     "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json"

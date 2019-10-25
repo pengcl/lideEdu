@@ -19,3 +19,43 @@
   background-color: #eee;
   border-radius: 30px;
 }
+
+.project-list {
+  display: flex;
+  margin-top: 10px;
+}
+
+.project-items {
+  flex: 1;
+  margin-left: 9px;
+}
+
+.project-item.more-item {
+  display: none
+}
+
+.show .project-item.more-item{
+  display: inline-block;
+}
+
+.project-item {
+  margin: 6px;
+  display: inline-block;
+  font-size: 14px;
+  color: #666;
+}
+
+.project-item.selected {
+  color: #f26549;
+}
+
+.project-more {
+  width: 20px;
+  margin: 6px 15px 6px 15px;
+}
+
+.project-more image {
+  display: block;
+  width: 20px;
+  height: 20px;
+}

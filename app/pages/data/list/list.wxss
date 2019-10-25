@@ -8,7 +8,7 @@
   align-self: center;
 }
 
-.weui-navbar__item_share button {
+.weui-navbar__item_share navigator {
   display: block;
   width: 16px;
   height: 16px;
@@ -17,7 +17,7 @@
   background-color: transparent;
 }
 
-.weui-navbar__item_share button::after{
+.weui-navbar__item_share navigator::after {
   display: none;
 }
 

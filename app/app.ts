@@ -3,15 +3,20 @@ export interface IMyApp {
   userInfoReadyCallback?(res: wx.UserInfo): void
   globalData: {
     userInfo?: wx.UserInfo,
-    index?: number,
+    typeId?: number,
+    prefix?: string,
+    filePrefix?: string,
     dataTabIndex?: string,
-    share?: any
+    share?: any,
+    array?:any[],
+    objectArray?:any[]
   }
 }
 
 App<IMyApp>({
   onLaunch() {
     // 展示本地存储能力
+    const that = this;
     var logs: number[] = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
@@ -41,11 +46,24 @@ App<IMyApp>({
           })
         }
       }
+    });
+    wx.request({
+      url: this.globalData.prefix + 'getProjectList', //获取项目列表
+      data: {},
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res: any) {
+        that.globalData.typeId = res.data.result.list[0].id;
+        console.log(that.globalData.typeId);
+      }
     })
   },
   globalData: {
-    index: 0,
+    typeId: 0,
     dataTabIndex: '0',
+    prefix: 'http://lide.ai-fox.net/intf/call/?action=',
+    filePrefix:'http://lide.ai-fox.net/admin/fileupload/previewFile?id=',
     share: {
       page: '',
       scene: ''

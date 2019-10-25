@@ -136,6 +136,14 @@
       </view>
     </view>
     <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+      <view class="project-list">
+        <view class="project-items {{!!showMore ? 'show' : ''}}">
+          <text data-id="{{item.id}}" data-item="{{item}}" bindtap="selected" wx:for="{{subjects}}" wx:key="key" wx:for-item="item" class="project-item {{index >= 4 ? 'more-item' : ''}} {{item.id === subject.id ? 'selected' : ''}}">{{item.subjectName}}</text>
+        </view>
+        <view bindtap="more" class="project-more">
+          <image src="/assets/icons/menu.png"></image>
+        </view>
+      </view>
       <view class="list">
         <view class="weui-panel">
           <view class="weui-panel__bd">
