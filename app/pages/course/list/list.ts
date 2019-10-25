@@ -3,12 +3,9 @@ import { formatTime } from '../../../utils/util';
 const app = getApp<IMyApp>();
 Page({
   data: {
-    tabs: ["直播", "录播"],
-    activeIndex: 1,
     subjects: [],
     subject: '',
-    sliderOffset: 0,
-    sliderLeft: 0,
+    items:[],
     showMore: false
   },
   onShow() {
@@ -20,28 +17,41 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res: any) {
-        console.log(res);
         that.setData!({
           subjects: res.data.result.list,
           subject: res.data.result.list[0]
         });
-        console.log(that.data.subject);
+        that.getItems(res.data.result.list[0].id);
       }
     });
-    this.setData!({
-    })
   },
-  tabClick(e: any) {
-    this.setData!({
-      sliderOffset: e.currentTarget.offsetLeft,
-      activeIndex: e.currentTarget.id
-    })
+
+  getItems(subjectId:any) {
+    const that = this;
+    wx.request({
+      url: app.globalData.prefix + 'getVideoList', //考前资料列表
+      data: { id: app.globalData.typeId, subjectId: subjectId },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res: any) {
+        console.log(res);
+        that.setData!({
+          items: res.data.result.list
+        });
+        console.log(that.data.items);
+      }
+    });
   },
   selected(e: any) {
     console.log(e.currentTarget.dataset.item);
     this.setData!({
       subject: e.currentTarget.dataset.item
     });
+    this.getItems(e.currentTarget.dataset.item.id);
+  },
+  onReachBottom() {
+    console.log('bottom');
   },
   more() {
     console.log('more');

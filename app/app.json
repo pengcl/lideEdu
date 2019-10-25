@@ -44,7 +44,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#f26549",
     "navigationBarTitleText": "立得学堂",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "onReachBottomDistance": 50
   },
   "sitemapLocation": "sitemap.json"
 }

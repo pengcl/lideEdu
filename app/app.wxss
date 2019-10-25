@@ -2,7 +2,6 @@
 @import 'weui.wxss';
 @import 'button.wxss';
 page {
-  overflow: hidden;
   padding: 0;
 }
 .container {
