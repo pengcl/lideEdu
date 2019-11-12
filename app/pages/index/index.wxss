@@ -31,7 +31,7 @@
 }
 
 .userinfo .bg {
-  background: #f26549;
+  background: #3e9bee;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   position: absolute;
@@ -45,7 +45,7 @@
 .userinfo .userinfo-container {
   margin: 30rpx;
   min-height: 200rpx;
-  box-shadow: 0rpx 0rpx 10rpx rgba(0, 0, 0, 0.5);
+  box-shadow: 0rpx 0rpx 10rpx rgba(0, 0, 0, 0.1);
   border-radius: 10rpx;
   background: #fff;
 }
@@ -59,7 +59,7 @@
 .userinfo .userinfo-container .userinfo-container_hd .avatar {
   width: 68rpx;
   height: 68rpx;
-  background: #f26549;
+  background: #3e9bee;
   overflow: hidden;
   border-radius: 100%;
   padding: 10rpx;
@@ -75,6 +75,16 @@
 .userinfo .userinfo-container .userinfo-container_hd .mobile {
   padding: 0 20rpx;
   font-size: 15px;
+}
+
+.userinfo .userinfo-container .userinfo-container_hd .mobile button {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  width: 100px;
+  line-height: 30px;
+  height: 30px;
+  min-height: 30px;
 }
 
 .userinfo .userinfo-container .userinfo-container_hd .share {
@@ -158,13 +168,6 @@
   color: #999;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
 .userinfo-nickname {
   color: #aaa;
 }
@@ -176,11 +179,14 @@
 .news .weui-panel::before, .news .weui-panel::after {
   display: none;
 }
-
+.news .weui-panel{
+  background-color: transparent;
+}
 .news .weui-panel .weui-media-box {
   margin: 20rpx 30rpx;
-  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
   border-radius: 6rpx;
+  background-color: #fff;
 }
 
 .news .weui-panel .weui-media-box:first-child {
@@ -207,14 +213,14 @@
 .news .weui-panel .weui-media-box__hd_in-appmsg text {
   line-height: 30px;
   vertical-align: middle;
-  color: #f26549;
+  color: #3e9bee;
   margin-right: 8px;
 }
 
 .news .weui-media-box__ft_in-appmsg .button {
   font-size: 10px;
   padding: 6rpx 10rpx;
-  background-color: #f26549;
+  background-color: #3e9bee;
   color: #fff;
   border-radius: 30rpx;
 }
@@ -248,4 +254,109 @@
 
 .news-item-hide {
   opacity: 0;
+}
+.profile {
+  margin: 15px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  min-height: 10px;
+  overflow: hidden;
+}
+
+.profile navigator {
+  position: absolute;
+  right: 15px;
+  width: 30px;
+  top: 50%;
+  transform: translate3d(0, -50%,0);
+}
+
+.profile navigator image {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+}
+
+.profile navigator text {
+  font-size: 10px;
+  text-align: center;
+  display: block;
+  color: #999
+}
+
+.weui-media-box__title {
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+.weui-media-box__article {
+  font-size: 13px;
+  margin-top: 5px;
+  color: #999;
+}
+
+.data-list {
+  position: relative;
+}
+
+.data-list::before {
+  position: absolute;
+  content: '';
+  top: 15px;
+  bottom: 15px;
+  left: 11px;
+  width: 1px;
+  right: auto;
+  height: auto;
+  border-right: 1px dashed #999;
+}
+
+.data-item {
+  display: flex;
+  padding-bottom: 10px;
+  padding: 8px 0 12px;
+}
+
+.data-item:first-child .data-item-hd .date {
+  background-color: #f26549;
+}
+
+.data-item-hd {
+}
+
+.data-item-hd .date {
+  font-size: 8px;
+  display: block;
+  padding: 1px 4px;
+  line-height: 1;
+  border-radius: 6px;
+  background-color: orange;
+  color: #fff;
+  margin-right: 10px;
+  margin-top: 3px;
+  position: relative;
+}
+
+.data-item-bd {
+  flex: 1;
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.data-item-bd .label {
+  color: #666;
+}
+
+.data-item-bd .value {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.contact {
+  margin: 15px 15px 60px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }

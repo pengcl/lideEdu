@@ -5,46 +5,47 @@ Page({
   data: {
     subjects: [],
     subject: '',
-    items:[],
+    items: [],
     showMore: false
   },
   onShow() {
     const that = this;
-    wx.request({
-      url: app.globalData.prefix + 'getSubjectList', //考前资料列表
-      data: { id: app.globalData.typeId },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success(res: any) {
-        that.setData!({
-          subjects: res.data.result.list,
-          subject: res.data.result.list[0]
+    app.getKey((userInfo: any) => {
+      if (!userInfo) {
+        app.globalData.showLoginPanel = true
+      } else {
+        wx.request({
+          url: app.globalData.prefix + 'getSubjectList', //考前资料列表
+          method: 'POST',
+          data: { key: app.globalData.userInfo.key, id: app.globalData.userInfo.typeId },
+          success(res: any) {
+            that.setData!({
+              subjects: res.data.result.list,
+            });
+            that.getItems('');
+          }
         });
-        that.getItems(res.data.result.list[0].id);
       }
-    });
+    })
   },
 
-  getItems(subjectId:any) {
+  getItems(subjectId: any) {
     const that = this;
     wx.request({
       url: app.globalData.prefix + 'getVideoList', //考前资料列表
-      data: { id: app.globalData.typeId, subjectId: subjectId },
+      method: 'POST',
+      data: { key: app.globalData.userInfo.key, id: app.globalData.userInfo.typeId, subjectId: subjectId },
       header: {
         'content-type': 'application/json' // 默认值
       },
       success(res: any) {
-        console.log(res);
         that.setData!({
           items: res.data.result.list
         });
-        console.log(that.data.items);
       }
     });
   },
   selected(e: any) {
-    console.log(e.currentTarget.dataset.item);
     this.setData!({
       subject: e.currentTarget.dataset.item
     });
@@ -54,10 +55,36 @@ Page({
     console.log('bottom');
   },
   more() {
-    console.log('more');
     this.setData!({
       showMore: !this.data.showMore
     });
-    console.log(this.data.showMore);
+  },
+  showInput() {
+    this.setData!({
+      inputShowed: true
+    });
+  },
+  hideInput() {
+    this.setData!({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput() {
+    this.setData!({
+      inputVal: ""
+    });
+  },
+  inputTyping(e: any) {
+    this.setData!({
+      inputVal: e.detail.value
+    });
+  },
+  onShareAppMessage() {
+    app.updateShare();
+    return {
+      title: '立得学堂',
+      path: '/pages/course/list/list'
+    }
   }
 })

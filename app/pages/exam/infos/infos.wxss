@@ -1,10 +1,32 @@
 .profile {
   margin: 15px;
   border-radius: 4px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   position: relative;
   min-height: 10px;
   overflow: hidden;
+}
+
+.profile navigator {
+  position: absolute;
+  right: 15px;
+  width: 30px;
+  top: 50%;
+  transform: translate3d(0, -50%,0);
+}
+
+.profile navigator image {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+}
+
+.profile navigator text {
+  font-size: 10px;
+  text-align: center;
+  display: block;
+  color: #999
 }
 
 .weui-media-box__title {
@@ -40,7 +62,7 @@
   padding: 8px 0 12px;
 }
 
-.data-item:first-child .data-item-hd .date{
+.data-item:first-child .data-item-hd .date {
   background-color: #f26549;
 }
 
@@ -57,7 +79,7 @@
   color: #fff;
   margin-right: 10px;
   margin-top: 3px;
-  position: relative
+  position: relative;
 }
 
 .data-item-bd {

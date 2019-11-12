@@ -2,9 +2,9 @@
   <view class="avatar">
     <image src="/assets/images/service.png"></image>
   </view>
-  <view class="name">钢琴上的骑兵</view>
-  <view class="title">广州智狐信息技术有限公司*技术顾问</view>
-  <view class="desc">经过16年不断努力，创新，追求卓越的办学精神以及实事求是的人才培养思路，已在全国各地的培训市场确立了高品质的服务品牌</view>
+  <view class="name">{{server.name}}</view>
+  <view class="title">{{server.company}}*{{server.post}}</view>
+  <view class="desc">{{server.introduction}}</view>
 </view>
 
 <view class="contact">
@@ -12,19 +12,21 @@
     <view class="weui-panel__bd">
       <view class="weui-media-box weui-media-box_text">
         <view class="weui-media-box__title weui-media-box__title_in-text">地址</view>
-        <view class="weui-media-box__desc">广东省广州市白云区龙禧中心F栋2410</view>
+        <view class="weui-media-box__desc">{{server.address}}</view>
       </view>
       <view class="weui-media-box weui-media-box_text">
         <view class="weui-media-box__title weui-media-box__title_in-text">电话</view>
-        <view class="weui-media-box__desc">15013262507</view>
+        <view class="weui-media-box__desc">{{server.mobile}}</view>
       </view>
-      <view class="weui-media-box weui-media-box_text">
-        <view class="weui-media-box__title weui-media-box__title_in-text">QQ</view>
-        <view class="weui-media-box__desc">3559996</view>
-      </view>
-      <view class="weui-media-box weui-media-box_text">
-        <view class="weui-media-box__title weui-media-box__title_in-text">微信</view>
-        <view class="weui-media-box__desc">i-Pengcl</view>
+      <view class="weui-media-box weui-media-box_appmsg">
+
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title weui-media-box__title_in-text">微信</view>
+          <view class="weui-media-box__desc">{{server.wechat}}</view>
+        </view>
+        <view bindtap="previewImage" class="weui-media-box__hd weui-media-box__hd_in-appmsg" style="margin-right:0">
+          <image class="weui-media-box__thumb" src="{{codeUrl}}" />
+        </view>
       </view>
     </view>
   </view>
@@ -32,3 +34,4 @@
 <view class="btns-group">
   <view bindtap="makeCall" class="btn-primary">有事撩客服，没事更要撩客服</view>
 </view>
+<login></login>

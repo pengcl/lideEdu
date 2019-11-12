@@ -1,9 +1,8 @@
 .poster {
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 48px);
   position: relative;
   box-sizing: border-box;
-  padding-bottom: 48px;
 }
 
 .poster image {
@@ -19,4 +18,19 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   width: 200rpx;
   height: 200rpx;
+}
+
+.poster .qr-code {
+  position: absolute;
+  right: 20px;
+  bottom: 68px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.poster .qr-code image {
+  display: block;
+  width: 100%;
+  height: 100%;
 }

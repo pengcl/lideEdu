@@ -1,21 +1,6 @@
-<view class="weui-search-bar">
-  <view class="weui-search-bar__form">
-    <view class="weui-search-bar__box">
-      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-      <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
-      <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
-        <icon type="clear" size="14"></icon>
-      </view>
-    </view>
-    <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
-      <icon class="weui-icon-search" type="search" size="14"></icon>
-      <view class="weui-search-bar__text">搜索</view>
-    </label>
-  </view>
-  <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
-</view>
 <view class="project-list">
   <view class="project-items {{!!showMore ? 'show' : ''}}">
+    <text data-id="" data-item="" bindtap="selected" class="project-item {{!subject ? 'selected' : ''}}">所有</text>
     <text data-id="{{item.id}}" data-item="{{item}}" bindtap="selected" wx:for="{{subjects}}" wx:key="key" wx:for-item="item" class="project-item {{index >= 4 ? 'more-item' : ''}} {{item.id === subject.id ? 'selected' : ''}}">{{item.subjectName}}</text>
   </view>
   <view bindtap="more" class="project-more">
@@ -35,10 +20,11 @@
           </view>
         </view>
         <view class="weui-media-box__ft weui-media-box__ft_in-appmsg">
-          <text data-id="{{item.pdfFileId}}" bindtap="openPdf" class="button">免费查看</text>
+          <navigator url="{{'/pages/course/item/item?id=' + item.id}}" class="button {{item.isNeedPay ? 'need' : ''}}">{{item.isNeedPay ? item.isPay ? '已支付' : '立即支付' :'免费查看'}}</navigator>
         </view>
       </view>
 
     </view>
   </view>
 </view>
+<login></login>

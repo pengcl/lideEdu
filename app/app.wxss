@@ -3,6 +3,7 @@
 @import 'button.wxss';
 page {
   padding: 0;
+  background-color: #fafafa
 }
 .container {
   height: 100%;
@@ -21,7 +22,7 @@ page {
 }
 
 .weui-navbar {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-bottom: none;
 }
 
@@ -34,7 +35,7 @@ page {
 
 .weui-navbar__item.weui-bar__item_on {
   background-color: transparent;
-  color: #f26549;
+  color: #3e9bee;
 }
 
 .weui-navbar__item::before {
@@ -42,13 +43,13 @@ page {
 }
 
 .weui-navbar__item::after {
-  width: 1em;
+  width: 80%;
   height: 6rpx;
   border-right: none;
-  border-bottom: 6rpx solid #f26549;
+  border-bottom: 6rpx solid #3e9bee;
   left: 50%;
   right: auto;
-  bottom: 7px;
+  bottom: 0;
   top: auto;
   transform: translate3d(-50%, 0, 0);
   display: none;
@@ -85,7 +86,7 @@ page {
 
 .list .weui-cell_access .weui-cell__hd {
   width: 6px;
-  background-color: #f26549;
+  background-color: #3e9bee;
   height: 1em;
   margin-right: 5px;
   border-radius: 2px;
@@ -93,6 +94,7 @@ page {
 
 .list .weui-cell_access + .weui-panel {
   margin-top: 0;
+  background-color: transparent;
 }
 
 .list .weui-cell__ft_in-access {
@@ -104,10 +106,15 @@ page {
   display: none;
 }
 
+.list .weui-panel{
+  background-color: transparent;
+}
+
 .list .weui-panel .weui-media-box {
   margin: 20rpx 30rpx;
-  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
   border-radius: 6rpx;
+  background-color: #fff;
 }
 
 .list .weui-panel .weui-media-box:first-child {
@@ -117,7 +124,7 @@ page {
 .weui-media-box__ft_in-appmsg .button {
   font-size: 10px;
   padding: 6rpx 10rpx;
-  background-color: #f26549;
+  background-color: #3e9bee;
   color: #fff;
   border-radius: 30rpx;
 }
@@ -143,9 +150,7 @@ service{
   position: fixed;
   right: 10px;
   bottom: 80px;
-  background-color: #f26549;
   border-radius: 50%;
-  padding: 5px;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
 }

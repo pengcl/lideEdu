@@ -28,7 +28,7 @@
                 </view>
               </view>
               <view class="weui-media-box__ft weui-media-box__ft_in-appmsg">
-                <text data-id="{{item.pdfFileId}}" bindtap="openPdf" class="button">免费查看</text>
+                <text data-id="{{item.pdfFileId}}" data-disabled="{{item.isNeedPay && !item.isPay}}" bindtap="openPdf" class="button {{item.isNeedPay ? 'need' : ''}}">{{item.isNeedPay ? item.isPay ? '已支付' : '立即支付' :'免费查看'}}</text>
               </view>
             </view>
 
@@ -50,7 +50,7 @@
                 </view>
               </view>
               <view class="weui-media-box__ft weui-media-box__ft_in-appmsg">
-                <text data-id="{{item.pdfFileId}}" bindtap="openPdf" class="button">免费查看</text>
+                <text data-id="{{item.pdfFileId}}" data-shared="{{userInfo.isShare}}" data-disabled="{{item.isNeedPay && !item.isPay}}" bindtap="openPdf" class="button {{item.isNeedPay ? 'need' : ''}}">{{item.isNeedPay ? item.isPay ? '已支付' : '立即支付' :'免费查看'}}</text>
               </view>
             </view>
 
@@ -60,3 +60,4 @@
     </view>
   </view>
 </view>
+<login></login>

@@ -1,0 +1,21 @@
+.section {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000
+}
+
+.section video {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translate3d(0,-50%,0)
+}
+
+.section image {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translate3d(0,-50%,0)
+}

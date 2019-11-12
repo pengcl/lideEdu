@@ -5,7 +5,7 @@
 	},
 	"miniprogramRoot": "app/",
 	"compileType": "app",
-	"libVersion": "2.9.0",
+	"libVersion": "2.9.1",
 	"projectname": "lide",
 	"scripts": {
 		"beforeCompile": "npm run tsc",
@@ -13,7 +13,7 @@
 		"beforeUpload": ""
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"enhance": true,
 		"postcss": true,
@@ -22,6 +22,7 @@
 		"coverView": true,
 		"nodeModules": true,
 		"autoAudits": true,
+		"uglifyFileName": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
@@ -29,11 +30,42 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		},
-		"uglifyFileName": true
+		}
 	},
 	"appid": "wxb84788fb7ddc5cfe",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
-	"condition": {}
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/data/list/list",
+					"query": "scene=12%2611",
+					"scene": null
+				}
+			]
+		}
+	}
 }

@@ -1,6 +1,8 @@
 {
+  "navigationBarTitleText": "立得学堂",
   "usingComponents": {
     "tabs": "/components/tabs/tabs",
-    "service": "/components/service/service"
+    "service": "/components/service/service",
+    "login": "/components/login/login"
   }
 }

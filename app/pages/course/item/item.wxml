@@ -1,0 +1,9 @@
+<view wx:if="{{item.isNeedPay === 1 && item.isPay === 0}}" class="section">
+  <image src="{{poster}}"></image>
+</view>
+<view wx:if="{{!(item.isNeedPay === 1 && item.isPay === 0)}}" class="section">
+  <video id="myVideo" src="{{fileUrl}}" controls></video>
+</view>
+<view wx:if="{{item.isNeedPay === 1 && item.isPay === 0}}" class="btns-group">
+  <view bindtap="requestPay" class="btn-primary">立即支付</view>
+</view>

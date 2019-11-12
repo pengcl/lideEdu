@@ -1,13 +1,14 @@
 {
   "style": "v2",
   "pages": [
-    "pages/course/list/list",
     "pages/index/index",
-    "pages/share/share",
-    "pages/exam/infos/infos",
-    "pages/service/service",
-    "pages/data/list/list",
     "pages/data/item/item",
+    "pages/data/list/list",
+    "pages/course/list/list",
+    "pages/exam/infos/infos",
+    "pages/course/item/item",
+    "pages/share/share",
+    "pages/service/service",
     "pages/search/index",
     "pages/logs/logs"
   ],
@@ -34,7 +35,7 @@
       },
       {
         "pagePath": "pages/exam/infos/infos",
-        "text": "考讯",
+        "text": "每日一练",
         "iconPath": "assets/icons/exam.png",
         "selectedIconPath": "assets/icons/exam_on.png"
       }
@@ -42,7 +43,8 @@
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#f26549",
+    "backgroundColor": "#f8f8f8",
+    "navigationBarBackgroundColor": "#3e9bee",
     "navigationBarTitleText": "立得学堂",
     "navigationBarTextStyle": "white",
     "onReachBottomDistance": 50

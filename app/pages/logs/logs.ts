@@ -5,7 +5,7 @@ Page({
   data: {
     logs: [] as string[]
   },
-  onLoad() {
+  onShow() {
     this.setData!({
       logs: (wx.getStorageSync('logs') || []).map((log: number) => {
         return formatTime(new Date(log))

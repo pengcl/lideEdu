@@ -1,7 +1,7 @@
-<view class="poster">
-  <image src="/assets/images/poster.jpg"></image>
-  <canvas canvas-id="myQrcode"></canvas>
-</view>
+<canvas class="poster" canvas-id="poster"></canvas>
+
+
 <view class="btns-group">
-  <view bindtap="makeCall" class="btn-primary">保存图片</view>
+  <view bindtap="save" class="btn-primary">保存图片后发微信朋友圈</view>
 </view>
+<login></login>

@@ -6,97 +6,13 @@ const app = getApp<IMyApp>()
 
 Page({
   data: {
-    motto: '点击 “编译” 以构建',
     userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     typeId: 0,
     index: 0,
-    array: ['一建', '二建', '一消', '一造', '二造', '监理', '安全', 'BIM', '学历教育', '无人机', '企业内训', '安全员', '初级经济师', '系统集成工程师'], animation: '',
-    objectArray: [
-      {
-        id: 0,
-        name: '一建'
-      },
-      {
-        id: 1,
-        name: '二建'
-      },
-      {
-        id: 2,
-        name: '一消'
-      },
-      {
-        id: 3,
-        name: '一造'
-      },
-      {
-        id: 4,
-        name: '二造'
-      },
-      {
-        id: 5,
-        name: '监理'
-      },
-      {
-        id: 6,
-        name: '安全'
-      },
-      {
-        id: 7,
-        name: 'BIM'
-      },
-      {
-        id: 8,
-        name: '学历教育'
-      },
-      {
-        id: 9,
-        name: '无人机'
-      },
-      {
-        id: 10,
-        name: '企业内训'
-      },
-      {
-        id: 11,
-        name: '安全员'
-      },
-      {
-        id: 12,
-        name: '初级经济师'
-      },
-      {
-        id: 13,
-        name: '系统集成工程师'
-      }
-    ],
-    news: [
-      {
-        title: '中教文化2019监理《质量控制》考前强化训练',
-        catalog: '三控',
-        views: '4308',
-        date: '2019-05-16',
-        mt: '0px',
-        show: true
-      },
-      {
-        title: '中教文化2019监理《质量控制》考前强化训练',
-        catalog: '三控',
-        views: '4308',
-        date: '2019-05-16',
-        mt: '0px',
-        show: true
-      },
-      {
-        title: '中教文化2019监理《质量控制》考前强化训练',
-        catalog: '三控',
-        views: '4308',
-        date: '2019-05-16',
-        mt: '0px',
-        show: true
-      }
-    ],
+    array: [],
+    objectArray: [],
+    news: [],
+    examTime: '',
     timer: {
       d: '00',
       h: '00',
@@ -104,60 +20,114 @@ Page({
       s: '00'
     },
     exams: [],
-    answers: []
-  },
-  //事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    answers: [],
+    infos: []
   },
   openPdf(e: any) {
-    wx.downloadFile({
-      url: app.globalData.filePrefix + e.currentTarget.dataset.id,
-      success: function (res) {
-        var Path = res.tempFilePath              //返回的文件临时地址，用于后面打开本地预览所用
-        wx.openDocument({
-          filePath: Path,
-          fileType: 'pdf',
-          success: function (res) {
-            console.log(res);
+    if (e.currentTarget.dataset.shared === 0) {
+      wx.showModal({
+        title: '温馨提示',
+        content: '该模块需要分享才能查看！',
+        confirmText: '马上分享',
+        success(res) {
+          if (res.confirm) {
+            wx.navigateTo({ url: '/pages/share/share' });
+            console.log('用户点击确定')
+          } else if (res.cancel) {
+            console.log('用户点击取消')
           }
-        })
-      },
-      fail: function (res) {
-        console.log(res);
-      }
-    });
+        }
+      })
+    } else {
+      wx.downloadFile({
+        url: app.globalData.filePrefix + e.currentTarget.dataset.id,
+        success: function (res) {
+          var Path = res.tempFilePath              //返回的文件临时地址，用于后面打开本地预览所用
+          wx.openDocument({
+            filePath: Path,
+            fileType: 'pdf',
+            success: function (res) {
+            }
+          })
+        },
+        fail: function (res) {
+        }
+      });
+    }
   },
   toPage(e: any) {
     app.globalData.dataTabIndex = e.currentTarget.dataset.index;
     wx.switchTab({ url: '../data/list/list' })
   },
   bindPickerChange: function (e: any) {
-    app.globalData.typeId = this.data.objectArray[e.detail.value].id;
+    app.globalData.userInfo.typeId = this.data.objectArray[e.detail.value].id;
     this.setData!({
       index: e.detail.value,
-      typeId: app.globalData.typeId
+      typeId: app.globalData.userInfo.typeId
     });
     this.getExams();
     this.getAnswers();
+    this.getInfos();
+    this.getVedios();
+  },
+  getVedios() {
+    const that = this;
+    wx.request({
+      url: app.globalData.prefix + 'getVideoList', //考前资料列表
+      method: 'POST',
+      data: { key: app.globalData.userInfo.key, id: app.globalData.userInfo.typeId, subjectId: '' },
+      success(res: any) {
+        that.setData!({
+          news: res.data.result.list.slice(0, 3).map((item: any) => {
+            item.title = item.title;
+            item.catalog = item.subjectName;
+            item.views = item.readNum;
+            item.date = formatTime(new Date(item.createTime));
+            item.mt = '0px';
+            item.show = true
+            return item;
+          })
+        });
+      }
+    });
   },
   getExams() {
     const that = this;
     wx.request({
+      method: 'POST',
       url: app.globalData.prefix + 'getExamInfoList', //考前资料列表
-      data: { id: that.data.typeId },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
+      data: { key: app.globalData.userInfo.key, id: app.globalData.userInfo.typeId },
       success(res: any) {
         that.setData!({
-          exams: res.data.result.list.map((item: any) => {
+          exams: res.data.result.list.slice(0, 3).map((item: any) => {
             item.createTime = formatTime(new Date(item.createTime))
             return item;
           })
         })
+      }
+    });
+  },
+  getInfos() {
+    const that = this;
+    wx.request({
+      url: app.globalData.prefix + 'getExamTimeList', //考前资料列表
+      method: 'POST',
+      data: { key: app.globalData.userInfo.key, id: app.globalData.userInfo.typeId },
+      success(res: any) {
+        that.setData!({
+          infos: res.data.result.list.map((info: any, index: number) => {
+            const times = formatTime(new Date(info.examTime)).split('.');
+            info.examTime = times[1] + '.' + times[2];
+            if (index === 0) {
+              const examTime = times[0] + '/' + times[1] + '/' + times[2] + ' ' + info.subjectList[0].startTime + ':00';
+              that.timeDown(examTime);
+              that.setData!({
+                examTime: times[1] + '月' + times[2] + '日'
+              })
+            }
+            return info;
+          })
+        });
       }
     });
   },
@@ -165,13 +135,11 @@ Page({
     const that = this;
     wx.request({
       url: app.globalData.prefix + 'getExamAnswersList', //答题对照列表
-      data: { id: that.data.typeId },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
+      method: 'POST',
+      data: { key: app.globalData.userInfo.key, id: app.globalData.userInfo.typeId },
       success(res: any) {
         that.setData!({
-          answers: res.data.result.list.map((item: any) => {
+          answers: res.data.result.list.slice(0, 3).map((item: any) => {
             item.createTime = formatTime(new Date(item.createTime))
             return item;
           })
@@ -179,81 +147,47 @@ Page({
       }
     });
   },
-  onLoad() {
+  onShow() {
     const that = this;
-    wx.request({
-      url: app.globalData.prefix + 'getProjectList', //获取项目列表
-      data: {},
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success(res: any) {
-        const array: any[] = [];
-        const objectArray: any[] = [];
-        res.data.result.list.forEach((item: any) => {
-          array.push(item.projectName);
-          objectArray.push({
-            id: item.id,
-            name: item.projectName
-          });
-        });
-        app.globalData.typeId = objectArray[0].id;
-        that.setData!({
-          typeId: objectArray[0].id,
-          array: array,
-          objectArray: objectArray
-        });
-        that.getExams();
-        that.getAnswers();
-      }
-    })
-    if (app.globalData.userInfo) {
-      this.setData!({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true,
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = (res) => {
+    app.getKey((userInfo: any) => {
+      if (!userInfo) {
+        app.globalData.showLoginPanel = true;
+      } else {
         this.setData!({
-          userInfo: res,
-          hasUserInfo: true
+          userInfo: userInfo,
+          typeId: app.globalData.userInfo.typeId
         })
+        wx.request({
+          url: app.globalData.prefix + 'getProjectList', //获取项目列表
+          data: {},
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          success(res: any) {
+            const array: any[] = [];
+            const objectArray: any[] = [];
+            res.data.result.list.forEach((item: any, index: number) => {
+              array.push(item.projectName);
+              objectArray.push({
+                id: item.id,
+                name: item.projectName
+              });
+            });
+
+            that.setData!({
+              typeId: app.globalData.userInfo.typeId,
+              index: getIndex(objectArray, 'id', app.globalData.userInfo.typeId),
+              array: array,
+              objectArray: objectArray
+            });
+            that.getExams();
+            that.getAnswers();
+            that.getInfos();
+            that.getVedios();
+          }
+        });
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData!({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-    this.timeDown('2019/10/30 00:00:00');
-    setTimeout(() => {
-      this.start();
-    }, 3000);
-  },
-
-  start() {
-    const item = JSON.parse(JSON.stringify(this.data.news[0]));
-    let data = JSON.parse(JSON.stringify(this.data.news));
-    data[0].mt = '-32px';
-    this.setData!({ news: data });
-    setTimeout(() => { data[0].show = false; this.setData!({ news: data }); }, 500);
-
-    setTimeout(() => {
-      data = JSON.parse(JSON.stringify(data.slice(1)));
-      data.push(item);
-      this.setData!({ news: data });
-    }, 2000)
-    setTimeout(() => {
-      this.start();
-    }, 3000)
+    });
   },
 
   getUserInfo(e: any) {
@@ -296,9 +230,36 @@ Page({
     }, 1000)
   },
   onShareAppMessage() {
+    app.updateShare();
     return {
       title: '立即得到',
       path: '/pages/index/index'
+    }
+  },
+  getPhoneNumber(e: any) {
+    const that = this;
+    const pages = getCurrentPages();
+    const currentPage = pages[pages.length - 1];
+    const options = currentPage.options;
+    console.log(e.detail.errMsg);
+    if (e.detail.errMsg === 'getPhoneNumber:ok'){
+      wx.request({
+        url: app.globalData.prefix + 'initMember', //获取项目列表
+        method: 'POST',
+        data: {
+          encryptedData: e.detail.encryptedData,
+          iv: e.detail.iv,
+          sessionKey: app.globalData.userInfo.sessionKey,
+          openid: app.globalData.userInfo.openId,
+          referee: options.scene ? decodeURIComponent(options.scene).split('&')[0] : ''
+        },
+        success(res: any) {
+          if (options.scene && decodeURIComponent(options.scene).split('&')[1]){}
+          app.globalData.showLoginPanel = false;
+          app.globalData.userInfo.key = '';
+          that.onShow();
+        }
+      })
     }
   }
 })

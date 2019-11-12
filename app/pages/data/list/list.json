@@ -1,6 +1,8 @@
 {
   "navigationBarTitleText": "资料",
   "usingComponents": {
-    "tabs": "/components/tabs/tabs"
+    "tabs": "/components/tabs/tabs",
+    "service": "/components/service/service",
+    "login": "/components/login/login"
   }
 }

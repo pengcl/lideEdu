@@ -1,0 +1,15 @@
+<view wx:if="{{show}}" class="auth-dialog">
+  <view class="weui-mask" bindtap="closeDialog"></view>
+  <view class="weui-dialog__wrp" bindtap="closeDialog">
+    <view class="weui-dialog" catchtap="stopEvent">
+      <view class="weui-dialog__hd"></view>
+      <view class="weui-dialog__bd">
+        <image class="userinfo-avatar" src="/assets/icons/data-white.png" mode="aspectFill" style="max-width:100%;" />
+        <view>登录立得学堂</view>
+      </view>
+      <view class="weui-dialog__ft">
+        <button class="weui-dialog__btn" open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">点击登录</button>
+      </view>
+    </view>
+  </view>
+</view>
