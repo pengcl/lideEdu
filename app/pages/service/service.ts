@@ -41,7 +41,7 @@ Page({
   onShareAppMessage() {
     app.updateShare();
     return {
-      title: '立即得到',
+      title: '教育成就美好未来',
       path: '/pages/service/service'
     }
   }

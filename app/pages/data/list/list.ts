@@ -53,6 +53,11 @@ Page({
     });
   },
   openPdf(e: any) {
+    const type = e.currentTarget.dataset.type;
+    let url = app.globalData.prefix + 'getExamAnswers';
+    if (type === 'exam'){
+      url = app.globalData.prefix + 'getExamInfo';
+    }
     if (e.currentTarget.dataset.shared === 0) {
       wx.showModal({
         title: '温馨提示',
@@ -79,6 +84,13 @@ Page({
             filePath: Path,
             fileType: 'pdf',
             success: function (res) {
+              wx.request({
+                url: url, //获取详情
+                method: 'POST',
+                data: { key: app.globalData.userInfo.key, id: e.currentTarget.dataset.iid },
+                success() {
+                }
+              });
             }
           })
         },

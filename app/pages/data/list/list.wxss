@@ -10,11 +10,12 @@
 
 .weui-navbar__item_share navigator {
   display: block;
-  width: 16px;
   height: 16px;
   margin: 0 0 0 auto;
   border: none;
   background-color: transparent;
+  text-align: right;
+  font-size: 0;
 }
 
 .weui-navbar__item_share navigator::after {
@@ -22,7 +23,15 @@
 }
 
 .weui-navbar__item_share image {
-  display: block;
+  display: inline-block;
   width: 16px;
   height: 16px;
+  vertical-align: middle
+}
+
+.weui-navbar__item_share text {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 12px;
+  margin-left: 5px;
 }

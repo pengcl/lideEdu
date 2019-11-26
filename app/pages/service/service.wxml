@@ -14,9 +14,14 @@
         <view class="weui-media-box__title weui-media-box__title_in-text">地址</view>
         <view class="weui-media-box__desc">{{server.address}}</view>
       </view>
-      <view class="weui-media-box weui-media-box_text">
-        <view class="weui-media-box__title weui-media-box__title_in-text">电话</view>
+      <view bindtap="makeCall" class="weui-media-box weui-media-box_appmsg">
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title weui-media-box__title_in-text">电话</view>
         <view class="weui-media-box__desc">{{server.mobile}}</view>
+        </view>
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" style="margin-right:0;width:30px;height:30px;">
+          <image class="weui-media-box__thumb" src="/assets/icons/call.png" />
+        </view>
       </view>
       <view class="weui-media-box weui-media-box_appmsg">
 

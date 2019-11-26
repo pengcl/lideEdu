@@ -10,7 +10,7 @@
           </view>
         </view>
         <view class="weui-media-box__ft weui-media-box__ft_in-appmsg">
-          <navigator target="miniProgram" app-id="wxd947200f82267e58" path="{{item.linkUrl}}" class="button">免费查看</navigator>
+          <navigator target="miniProgram" app-id="wxd947200f82267e58" path="{{item.linkUrl}}" class="button">点此查看</navigator>
         </view>
       </view>
 

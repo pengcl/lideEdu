@@ -94,6 +94,13 @@
   background-color: transparent;
 }
 
+.userinfo .userinfo-container .userinfo-container_hd .share text {
+  font-size: 12px;
+  vertical-align: middle;
+  margin-left: 5px;
+  color: #666
+}
+
 .userinfo .userinfo-container .userinfo-container_hd .share::after {
   display: none;
 }
@@ -108,9 +115,10 @@
 }
 
 .userinfo .userinfo-container .userinfo-container_hd .share image {
-  display: block;
+  display: inline-block;
   width: 32rpx;
   height: 32rpx;
+  vertical-align: middle
 }
 
 .userinfo .userinfo-container .userinfo-container_bd {

@@ -24,6 +24,12 @@ Page({
     infos: []
   },
   openPdf(e: any) {
+    const type = e.currentTarget.dataset.type;
+    let url = app.globalData.prefix + 'getExamAnswers';
+    console.log(url);
+    if (type === 'exam') {
+      url = app.globalData.prefix + 'getExamInfo';
+    }
     if (e.currentTarget.dataset.shared === 0) {
       wx.showModal({
         title: '温馨提示',
@@ -47,6 +53,13 @@ Page({
             filePath: Path,
             fileType: 'pdf',
             success: function (res) {
+              wx.request({
+                url: url, //获取详情
+                method: 'POST',
+                data: { key: app.globalData.userInfo.key, id: e.currentTarget.dataset.iid },
+                success() {
+                }
+              });
             }
           })
         },
@@ -120,7 +133,10 @@ Page({
             info.examTime = times[1] + '.' + times[2];
             if (index === 0) {
               const examTime = times[0] + '/' + times[1] + '/' + times[2] + ' ' + info.subjectList[0].startTime + ':00';
-              that.timeDown(examTime);
+
+              if (Date.parse(new Date(examTime).toString()) > Date.parse(new Date().toString())) {
+                that.timeDown(examTime);
+              }
               that.setData!({
                 examTime: times[1] + '月' + times[2] + '日'
               })
@@ -153,6 +169,9 @@ Page({
       if (!userInfo) {
         app.globalData.showLoginPanel = true;
       } else {
+        if (userInfo.purePhoneNumber) {
+          userInfo.phoneNumber = userInfo.purePhoneNumber.substring(0, 3) + '****' + userInfo.purePhoneNumber.substring(7, 11)
+        }
         this.setData!({
           userInfo: userInfo,
           typeId: app.globalData.userInfo.typeId
@@ -189,7 +208,11 @@ Page({
       }
     });
   },
-
+  goPage(e: any) {
+    wx.navigateTo({
+      url: '/pages/course/item/item?id=' + e.currentTarget.dataset.id,
+    })
+  },
   getUserInfo(e: any) {
     app.globalData.userInfo = e.detail.userInfo
     this.setData!({
@@ -218,10 +241,10 @@ Page({
     //输出到页面
     this.setData!({
       timer: {
-        d: days < 10 ? '0' + days : days,
-        h: hours < 10 ? '0' + hours : hours,
-        m: minutes < 10 ? '0' + minutes : minutes,
-        s: seconds < 10 ? '0' + seconds : seconds
+        d: days < 10 ? (days > 0 ? '0' + days : '00') : days,
+        h: hours < 10 ? (hours > 0 ? '0' + hours : '00') : hours,
+        m: minutes < 10 ? (minutes > 0 ? '0' + minutes : '00') : minutes,
+        s: seconds < 10 ? (seconds > 0 ? '0' + seconds : '00') : seconds
       }
     });
     //延迟一秒执行自己
@@ -232,7 +255,7 @@ Page({
   onShareAppMessage() {
     app.updateShare();
     return {
-      title: '立即得到',
+      title: '教育成就美好未来',
       path: '/pages/index/index'
     }
   },
@@ -242,7 +265,7 @@ Page({
     const currentPage = pages[pages.length - 1];
     const options = currentPage.options;
     console.log(e.detail.errMsg);
-    if (e.detail.errMsg === 'getPhoneNumber:ok'){
+    if (e.detail.errMsg === 'getPhoneNumber:ok') {
       wx.request({
         url: app.globalData.prefix + 'initMember', //获取项目列表
         method: 'POST',
@@ -254,7 +277,7 @@ Page({
           referee: options.scene ? decodeURIComponent(options.scene).split('&')[0] : ''
         },
         success(res: any) {
-          if (options.scene && decodeURIComponent(options.scene).split('&')[1]){}
+          if (options.scene && decodeURIComponent(options.scene).split('&')[1]) { }
           app.globalData.showLoginPanel = false;
           app.globalData.userInfo.key = '';
           that.onShow();
